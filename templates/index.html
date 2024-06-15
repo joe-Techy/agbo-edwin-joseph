@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agbo Edwin Joseph</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="{{ url_for('static', filename='js/main.js') }}" defer></script>
+</head>
+<body onload="startIntro()">
+    <div id="intro-container" class="intro-container">
+        <h1 id="intro-message"></h1>
+    </div>
+    <div id="main-content" class="hidden">
+        <img src="{{ url_for('static', filename='images/profile.jpg') }}" alt="Profile Picture">
+        <h2>About Me</h2>
+        <p>I am a software developer specializing in web and mobile applications.</p>
+        <h2>Contact Information</h2>
+        <p>Email: agbo0225@gmail.com</p>
+        <h2>"Scan Me"</h2>
+        <img src="{{ url_for('static', filename='images/qr-code.png') }}" alt="QR Code">
+    </div>
+</body>
+</html>
