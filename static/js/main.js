@@ -1,28 +1,30 @@
-function startIntro() {
-    const introMessage = 'We Are Tech 😊';
-    const introElement = document.getElementById('intro-message');
+function showIntro() {
+    const introText = document.getElementById('introText');
+    const text = "We Are Tech 😊";
     let index = 0;
-
-    function typeNextCharacter() {
-        if (index < introMessage.length) {
-            introElement.textContent += introMessage.charAt(index);
-            index++;
-            setTimeout(typeNextCharacter, 200); // Adjust typing speed here
-        } else {
-            setTimeout(showMainContent, 1000); // Show main content after delay
+    const interval = setInterval(() => {
+        introText.innerHTML += text[index];
+        index++;
+        if (index >= text.length) {
+            clearInterval(interval);
+            setTimeout(() => {
+                document.getElementById('intro').style.display = 'none';
+                document.getElementById('content').classList.remove('hidden');
+                playWelcomeMessage();
+            }, 1000); // delay before showing the main content
         }
-    }
-
-    typeNextCharacter();
-}
-
-function showMainContent() {
-    document.getElementById('intro-container').classList.add('hidden');
-    document.getElementById('main-content').classList.remove('hidden');
-    playWelcomeMessage();
+    }, 500);
 }
 
 function playWelcomeMessage() {
     const message = new SpeechSynthesisUtterance('Welcome to Agbo Edwin Joseph Homepage.');
     window.speechSynthesis.speak(message);
+}
+
+function showBagChart() {
+    alert('Bag Chart coming soon!');
+}
+
+function showManager() {
+    alert('Manager tools coming soon!');
 }
