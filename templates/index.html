@@ -3,13 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agbo Edwin Joseph</title>
+    <title>J.A-T.Terminal</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #f0f0f0;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            width: 100%;
+            text-align: center;
+            padding: 1em 0;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+        .icon {
+            cursor: pointer;
+        }
+        .icon:hover {
+            color: green;
+        }
+        main {
+            max-width: 800px;
+            background-color: #fff;
+            padding: 2em;
+            margin: 2em 0;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .qr-code {
+            width: 200px;
+            height: 200px;
+            margin-top: 1em;
+        }
+    </style>
 </head>
 <body>
     <header>
-        <h1>Agbo Edwin Joseph</h1>
+        <h1>J.A-T.Terminal</h1>
         <i class="fas fa-home icon" title="Welcome"></i>
         <i class="fas fa-chart-bar icon" title="Bag Chart"></i>
         <i class="fas fa-tachometer-alt icon" title="Internet Speed Test" onclick="window.location.href='https://www.speedtest.net'"></i>
@@ -38,7 +76,7 @@
         </section>
         <section>
             <h2>Resume</h2>
-            <a href="{{ url_for('static', filename='docs/resume.pdf') }}" target="_blank">View my Resume</a>
+            <a href="{{ url_for('static', filename='doc/resume.pdf') }}" target="_blank">View my Resume</a>
         </section>
     </main>
     <script src="{{ url_for('static', filename='js/main.js') }}"></script>
