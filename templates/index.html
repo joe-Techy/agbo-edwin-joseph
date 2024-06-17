@@ -15,6 +15,20 @@
             align-items: center;
             background-color: #f0f0f0;
         }
+        #intro-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        #intro-message {
+            font-size: 2em;
+            font-weight: bold;
+        }
+        .hidden {
+            display: none;
+        }
         header {
             background-color: #333;
             color: #fff;
@@ -46,14 +60,17 @@
     </style>
 </head>
 <body>
-    <header>
+    <div id="intro-container">
+        <div id="intro-message">We...</div>
+    </div>
+    <header class="hidden">
         <h1>J.A-T.Terminal</h1>
         <i class="fas fa-home icon" title="Welcome"></i>
         <i class="fas fa-chart-bar icon" title="Bag Chart"></i>
         <i class="fas fa-tachometer-alt icon" title="Internet Speed Test" onclick="window.location.href='https://www.speedtest.net'"></i>
         <i class="fas fa-user-tie icon" title="Manager"></i>
     </header>
-    <main>
+    <main class="hidden">
         <section>
             <h2>Profile Picture</h2>
             <img src="{{ url_for('static', filename='images/profile.jpg') }}" alt="Profile Picture" style="width: 110px; height: 150px;">

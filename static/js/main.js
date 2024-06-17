@@ -1,46 +1,29 @@
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function() {
     const introMessage = document.getElementById('intro-message');
-    const clickSound = document.getElementById('click-sound');
-    const introContainer = document.getElementById('intro');
+    const introContainer = document.getElementById('intro-container');
+    const header = document.querySelector('header');
+    const main = document.querySelector('main');
 
-    function showIntroMessage() {
-        const words = introMessage.textContent.split(' ');
-        introMessage.textContent = '';
-        introMessage.classList.remove('hidden');
-        let i = 0;
+    const messages = ["We...", "Are...", "Tech"];
+    let index = 0;
 
-        function showWord() {
-            if (i < words.length) {
-                introMessage.textContent += words[i] + ' ';
-                clickSound.play();
-                i++;
-                setTimeout(showWord, 500); // Adjust timing as needed
-            } else {
-                setTimeout(() => {
-                    introContainer.classList.add('hidden');
-                }, 1000); // Adjust timing as needed
-            }
-        }
-
-        showWord();
+    function playClickSound() {
+        const clickSound = new Audio('{{ url_for('static', filename='sounds/click.mp3') }}');
+        clickSound.play();
     }
 
-    showIntroMessage();
+    function showMessage() {
+        if (index < messages.length) {
+            introMessage.textContent = messages[index];
+            playClickSound();
+            index++;
+            setTimeout(showMessage, 1000); // 1 second delay between messages
+        } else {
+            introContainer.classList.add('hidden');
+            header.classList.remove('hidden');
+            main.classList.remove('hidden');
+        }
+    }
+
+    showMessage();
 });
-
-function playWelcomeMessage() {
-    const message = new SpeechSynthesisUtterance('Welcome to Agbo Edwin Joseph Homepage.');
-    window.speechSynthesis.speak(message);
-}
-
-function showTools() {
-    window.location.href = 'https://www.speedtest.net';
-}
-
-function showBagChart() {
-    alert('Bag Chart coming soon!');
-}
-
-function showManager() {
-    alert('Manager tools coming soon!');
-}
