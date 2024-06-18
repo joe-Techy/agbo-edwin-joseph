@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
     let index = 0;
 
     function playClickSound() {
-        const clickSound = new Audio('{{ url_for('static', filename='sounds/click.mp3') }}');
+        const clickSound = new Audio('/static/sounds/click.mp3');
         clickSound.play();
     }
 
