@@ -3,21 +3,18 @@ document.addEventListener('DOMContentLoaded', function() {
     const introContainer = document.getElementById('intro-container');
     const header = document.querySelector('header');
     const main = document.querySelector('main');
+    const words = ["We...", "Are...", "Tech..."];
+    let wordIndex = 0;
 
-    const messages = ["We...", "Are...", "Tech"];
-    let index = 0;
+    // Load the click sound
+    const clickSound = new Audio('/static/sounds/click.mp3');
 
-    function playClickSound() {
-        const clickSound = new Audio('/static/sounds/click.mp3');
-        clickSound.play();
-    }
-
-    function showMessage() {
-        if (index < messages.length) {
-            introMessage.textContent = messages[index];
-            playClickSound();
-            index++;
-            setTimeout(showMessage, 1000); // 1 second delay between messages
+    function showNextWord() {
+        if (wordIndex < words.length) {
+            introMessage.textContent = words[wordIndex];
+            clickSound.play(); // Play click sound
+            wordIndex++;
+            setTimeout(showNextWord, 1000); // Change word every second
         } else {
             introContainer.style.display = 'none';
             header.classList.remove('hidden');
@@ -25,5 +22,5 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    showMessage();
+    setTimeout(showNextWord, 1000); // Start after 1 second
 });
