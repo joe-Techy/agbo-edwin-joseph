@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function() {
             index++;
             setTimeout(showMessage, 1000); // 1 second delay between messages
         } else {
-            introContainer.classList.add('hidden');
+            introContainer.style.display = 'none';
             header.classList.remove('hidden');
             main.classList.remove('hidden');
         }
